@@ -1,2 +1,2 @@
-# Algoritmos-e-Progama-o-ll
+# Algoritmos e Progamação ll
 Trabalho Atividade Docente Orientada.
