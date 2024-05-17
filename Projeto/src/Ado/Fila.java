@@ -94,5 +94,14 @@ public class Fila {
         }
         return false;
     }
+
+    public boolean musicaRegistrada(String nome, String artista) {
+        for (Musicas musica : vetor) {
+            if (musica.getNome().equals(nome) && musica.getArtista().equals(artista)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
     
