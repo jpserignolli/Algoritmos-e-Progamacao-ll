@@ -19,18 +19,25 @@ public class Main {
         do {
             System.out.println("Digite o nome da música: ");
             String nome = input.nextLine();
-            System.out.println("Digite o nome do artista: ");
+            System.out.println("\nDigite o nome do artista: ");
             String artista = input.nextLine();
-            System.out.println("Digite a duração da música: ");
+            System.out.println("\nDigite a duração da música: ");
             float tempo = input.nextFloat();
             
             
             f.inserir(nome,artista,tempo);
-            System.out.println("Deseja cadastra mais uma música ?" + "\n1) Sim" + "\n2) Não");
-            r = input.nextInt();
-            
+            do {
+                System.out.println("Deseja cadastrar mais uma música? \n1) Sim\n2) Não");
+                r = input.nextInt();
+                input.nextLine(); 
+
+                if (r != 1 && r != 2) {
+                    System.out.println("Opção inválida.");
+                }
+            } while (r != 1 && r != 2);
         } while (r == 1);
         
+             
         f.ordenarMusicas();
         
         int opcao = 0;

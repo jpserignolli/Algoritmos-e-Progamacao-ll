@@ -4,7 +4,7 @@
  */
 package Ado;
 import java.util.ArrayList;
-import Ado.Musicas;
+
 /**
  *
  * @author joao.psborin
@@ -15,6 +15,7 @@ public class Fila {
     private int primeiro;
     private int ultimo;
     private int total;
+    public Object listarMusicas;
 
     public Fila() {
         primeiro = 0;
@@ -47,9 +48,18 @@ public class Fila {
         return total == vetor.size();
     }
     
-    public void ordenarMusicas(){
-        vetor.sort((m1, m2) -> m1.getNome().compareTo(m2.getNome()));
+    public void ordenarMusicas() {        
+        for (int i = 0; i < vetor.size() - 1; i++) {
+            for (int j = 0; j < vetor.size() - i - 1; j++) {
+                if (vetor.get(j).getNome().compareTo(vetor.get(j + 1).getNome()) > 0) {
+                    Musicas aux = vetor.get(j);
+                    vetor.set(j, vetor.get(j + 1));
+                    vetor.set(j + 1, aux);                    
+                }
+            }
+        }
     }
+
     
     public Musicas pesquisaBinaria(String nome){
         int inicio = 0;
@@ -72,7 +82,7 @@ public class Fila {
         for(Musicas musica : vetor){
             System.out.println("Nome da música: " + musica.getNome() +
                     "\nNome do Artista: " + musica.getArtista() +
-                    "\nTempo de música: " + musica.getTempo() + "minutos");
+                    "\nTempo de música: " + musica.getTempo() + " minutos" + "\n");
         }
     }
     public boolean removerMusica(String nome){
